@@ -5,10 +5,10 @@ const client = new Client({
   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
   partials: ['MESSAGE', 'REACTION']
 });
-const webhookClient = new WebhookClient(
-  process.env.WEBHOOK_ID,
-  process.env.WEBHOOK_TOKEN
-);
+// const webhookClient = new WebhookClient(
+//   process.env.WEBHOOK_ID,
+//   process.env.WEBHOOK_TOKEN
+// );
 const prefix = "$";
 
 client.on('ready', ()=> {
@@ -57,12 +57,12 @@ client.on('messageCreate', async (message) => {
         message.channel.send('an error occured');
       }
     }
-    else if(cmdName === 'announcements') {
-      console.log(args);
-      const msg = args.join(' ');
-      console.log(msg);
-      webhookClient.send(msg);
-    }
+    // else if(cmdName === 'announcements') {
+    //   console.log(args);
+    //   const msg = args.join(' ');
+    //   console.log(msg);
+    //   webhookClient.send(msg);
+    // }
   }
 });
 client.on('messageReactionAdd', (reaction, user)=> {
